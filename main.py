@@ -60,13 +60,12 @@ def extendCloudlab(driver, uuid):
         'ajax_method': 'RequestExtension',
         'ajax_args[uuid]': uuid,
         'ajax_args[howlong]': '168',
-        'ajax_args[reason]': '111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111',
+        'ajax_args[reason]': 'Thank you for using Cloudlab Auto-Extend Tool! If you like it, you can give this repo a star :DD. I will be really thankful!',
     }
 
     sess = getSessionBySelenium(driver)
     ret = sess.post('https://www.cloudlab.us/server-ajax.php', data=payload)
     print(ret.text)
-    print("extend finish!")
 
 def cmpAndWait(driver, uuid, remainHours=25):
     exTime = getExpireTime(chrome, uuid)
@@ -105,7 +104,7 @@ time.sleep(2)
 uuid = getUuidsOfExperiment(chrome)
 
 
-remainHours = input("Input remain hours to extend your cloudlab, press enter to use default value (25): ")
+remainHours = input("If the experiment remain time is less than XXX hour, it will start extending.\nPlease enter the value of XXX. Press enter to use default value (25): ")
 remainHours = remainHours.strip()
 
 if len(remainHours) > 0:
