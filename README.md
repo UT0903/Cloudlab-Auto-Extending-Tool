@@ -2,7 +2,7 @@
 
 You can auto-extend your cloudlab experiments by using this tool.
 
-#### Reminding
+#### Reminder
 
 YOU SHOULD RUN THIS PROGRAM IN TMUX
 
