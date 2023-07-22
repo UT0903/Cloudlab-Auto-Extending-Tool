@@ -61,12 +61,8 @@ def extendCloudlab(driver, uuid):
         'ajax_args[uuid]': uuid,
         'ajax_args[howlong]': '168',
         'ajax_args[reason]': '111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111',
-        #'ajax_args[maxextension]': '2024-01-19T23:00:00Z'
     }
-    # chrome.find_element(By.XPATH, '//span[@id="future_usage"]').send_keys(168)
-    # time.sleep(100)
-    # chrome.find_element(By.XPATH, '//textarea[@id="why_extend"]').send_keys('11111111111111wwwwwwwwwwwwwwwwwwwwwwwww1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111')
-    # chrome.find_element(By.XPATH, '//button[@id="request-extension"]').click()
+
     sess = getSessionBySelenium(driver)
     ret = sess.post('https://www.cloudlab.us/server-ajax.php', data=payload)
     print(ret.text)
@@ -88,9 +84,6 @@ def cmpAndWait(driver, uuid, remainHours=25):
             print('------Extend Finished! Next Extend Time will be: {}------'.format(exTime - relativedelta(hours=remainHours)))
         else:
             time.sleep(1799) # sleep for 1 hour
-
-
-
 
 service = Service(ChromeDriverManager().install())
 
@@ -116,5 +109,3 @@ if len(remainHours) > 0:
     cmpAndWait(chrome, uuid, remainHours=int(remainHours))
 else:
     cmpAndWait(chrome, uuid)
-    
-#extendCloudlab(chrome, '4306f01c-1ede-11ee-9f39-e4434b2381fc')
