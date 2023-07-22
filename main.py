@@ -85,7 +85,10 @@ def cmpAndWait(driver, uuid, remainHours=25):
         else:
             time.sleep(1799) # sleep for 1 hour
 
-service = Service(ChromeDriverManager().install())
+try:
+    service = Service(ChromeDriverManager().install())
+except:
+    service = Service("./linux64_114.0.5735.90_chromedriver/chromedriver")
 
 options = webdriver.ChromeOptions()
 options.add_argument("--disable-notifications")
