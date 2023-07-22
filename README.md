@@ -1,4 +1,7 @@
 # Cloudlab-Auto-Extending-Tool
+
+You can auto-extend your cloudlab experiments by using this tool.
+
 ## Usage
 
 1. Install Required Python Package
