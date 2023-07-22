@@ -2,6 +2,10 @@
 
 You can auto-extend your cloudlab experiments by using this tool.
 
+#### Reminding
+
+YOU SHOULD RUN THIS PROGRAM IN TMUX
+
 ## Usage
 
 1. Install Required Python Package
