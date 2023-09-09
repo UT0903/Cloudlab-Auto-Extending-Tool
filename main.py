@@ -82,18 +82,13 @@ def cmpAndWait(driver, uuid, remainHours=25):
             exTime = getExpireTime(chrome, uuid)
             print('------Extend Finished! Next Extend Time will be: {}------'.format(exTime - relativedelta(hours=remainHours)))
         else:
-            time.sleep(1799) # sleep for 1 hour
-
-try:
-    service = Service(ChromeDriverManager().install())
-except:
-    service = Service("./linux64_114.0.5735.90_chromedriver/chromedriver")
+            time.sleep(1799) # sleep for half hour
 
 options = webdriver.ChromeOptions()
 options.add_argument("--disable-notifications")
 options.add_argument("window-size=1920x1080")
 options.add_argument("--headless")
-chrome = webdriver.Chrome(service=service, options=options)
+chrome = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 print("------PLEASE RUN THIS PROGRAM IN TMUX------")
 userName = input("Enter Your Username: ")
